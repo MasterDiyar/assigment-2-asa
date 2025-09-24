@@ -82,6 +82,7 @@ public class ShellSort implements Sort {
     }
 
     public void Shell(int[] arr) {
+        if (arr == null || arr.length == 0) return;
         int[] gaps = shellGaps(arr.length);
         Metrics m = new Metrics();
         arr = ShellSorter(arr, gaps, m);
@@ -89,6 +90,7 @@ public class ShellSort implements Sort {
     }
 
     public void Knuth(int[] arr) {
+        if (arr == null || arr.length == 0) return;
         int[] gaps = knuthGaps(arr.length);
         Metrics m = new Metrics();
         arr = ShellSorter(arr, gaps, m);
@@ -96,6 +98,7 @@ public class ShellSort implements Sort {
     }
 
     public void Sedgewick(int[] arr) {
+        if (arr == null || arr.length == 0) return;
         int[] gaps = sedgewickGaps(arr.length);
         Metrics m = new Metrics();
         arr = ShellSorter(arr, gaps, m);

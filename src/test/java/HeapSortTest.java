@@ -1,4 +1,4 @@
-package src.test.java;
+
 
 import org.algorithms.HeapSort;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,7 +17,7 @@ class HeapSortTest {
     @BeforeEach
     void setUp() {
         sorter = new HeapSort();
-        rand = new Random(42); // fixed seed for reproducibility
+        rand = new Random(42);
     }
 
     @Test
