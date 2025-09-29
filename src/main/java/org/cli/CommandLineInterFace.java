@@ -3,6 +3,10 @@ package org.cli;
 import org.algorithms.HeapSort;
 import org.algorithms.ShellSort;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class CommandLineInterFace {
@@ -31,6 +35,7 @@ public class CommandLineInterFace {
         System.out.println("Enter 3 for shell, 4 for knuth, 5 for sedgewick");
         var enter = sc.nextLine().split(" ");
         var randArr = HeapSort.CreateRandomArray(Integer.parseInt(enter[1]));
+        CommandLineInterFace.CSVWriter(Arrays.toString(randArr));
         switch (Integer.parseInt(enter[0])) {
             case 3: sorter.Shell(randArr);break;
             case 4: sorter.Knuth(randArr);break;
@@ -43,6 +48,20 @@ public class CommandLineInterFace {
         System.out.println("Enter how many elements will be in array");
         int count = Integer.parseInt(sc.nextLine());
         sorter.sort(count);
+    }
+
+    public static void CSVWriter(String item)  {
+        try {
+            File file = new File("./output.csv");
+            FileWriter fw = new FileWriter(file, true);
+            fw.write("\n"+item);
+            fw.close();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 

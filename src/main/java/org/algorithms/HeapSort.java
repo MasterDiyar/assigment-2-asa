@@ -1,5 +1,7 @@
 package org.algorithms;
 
+import org.cli.CommandLineInterFace;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -14,6 +16,7 @@ public class HeapSort implements Sort {
     @Override
     public void sort(int count) {
         int[] arr = CreateRandomArray(count);
+        CommandLineInterFace.CSVWriter(Arrays.toString(arr));
 
         System.out.println("Original array:");
         System.out.println(Arrays.toString(arr));
@@ -21,6 +24,7 @@ public class HeapSort implements Sort {
         resetMetrics();
         allocations++; // one array created
         sort(arr);     // delegate to array-based sort
+        CommandLineInterFace.CSVWriter(Arrays.toString(arr));
 
         System.out.println("Sorted array:");
         System.out.println(Arrays.toString(arr));

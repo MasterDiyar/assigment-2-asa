@@ -1,5 +1,7 @@
 package org.algorithms;
 
+import org.cli.CommandLineInterFace;
+
 import java.util.Arrays;
 
 public class ShellSort implements Sort {
@@ -19,14 +21,16 @@ public class ShellSort implements Sort {
 
     @Override
     public void sort(int count) {
+        var cra = CreateRandomArray(count);
+        CommandLineInterFace.CSVWriter(Arrays.toString(cra));
         System.out.println("Shell sequence:");
-        Shell(CreateRandomArray(count));
+        Shell(cra);
 
         System.out.println("\nKnuth sequence:");
-        Knuth(CreateRandomArray(count));
+        Knuth(cra);
 
         System.out.println("\nSedgewick sequence:");
-        Sedgewick(CreateRandomArray(count));
+        Sedgewick(cra);
     }
 
     public static int[] CreateRandomArray(int count) {
@@ -86,7 +90,10 @@ public class ShellSort implements Sort {
         int[] gaps = shellGaps(arr.length);
         Metrics m = new Metrics();
         arr = ShellSorter(arr, gaps, m);
+        CommandLineInterFace.CSVWriter(Arrays.toString(arr));
         System.out.println(m);
+
+
     }
 
     public void Knuth(int[] arr) {
@@ -94,6 +101,7 @@ public class ShellSort implements Sort {
         int[] gaps = knuthGaps(arr.length);
         Metrics m = new Metrics();
         arr = ShellSorter(arr, gaps, m);
+        CommandLineInterFace.CSVWriter(Arrays.toString(arr));
         System.out.println(m);
     }
 
@@ -102,6 +110,7 @@ public class ShellSort implements Sort {
         int[] gaps = sedgewickGaps(arr.length);
         Metrics m = new Metrics();
         arr = ShellSorter(arr, gaps, m);
+        CommandLineInterFace.CSVWriter(Arrays.toString(arr));
         System.out.println(m);
     }
 

@@ -79,7 +79,7 @@ public class ShellSortTest {
     @Test
     @DisplayName("scalability test: производительность")
     void testScalability() {
-        int[] sizes = {100, 1_000, 10_000, 50_000};
+        int[] sizes = {100, 1_000, 10_000, 100_000};
         for (int n : sizes) {
             int[] arr = rand.ints(n, -1_000_000, 1_000_000).toArray();
             long start = System.nanoTime();
